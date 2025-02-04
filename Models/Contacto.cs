@@ -2,7 +2,7 @@
 
 namespace WebFormContact.Models
 {
-    public class ContactMessages
+    public class Contacto
     {
 
         public int IdContacto { get; set; }
