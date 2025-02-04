@@ -6,6 +6,6 @@ namespace WebFormContact.Models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options) { }
 
-        public DbSet<Contacto> ContactMessages { get; set; }
+        public DbSet<Contacto> Contacto { get; set; }
     }
 }
