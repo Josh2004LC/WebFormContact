@@ -1,12 +1,4 @@
-﻿@{
-	ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-	<h1 class="display-4">Welcome</h1>
-	<p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
-	@model WebFormContact.Models.Contacto
+﻿	@model WebFormContact.Models.Contacto
 
 	@{
 		ViewData["Title"] = "Formuraio de Contacto";
@@ -32,7 +24,7 @@
 		</div>
 		<div>
 			<label>Mensaje:</label>
-<textarea asp-for="Mensaje" class="form-control"></textarea>
+			<textarea asp-for="Mensaje" class="form-control"></textarea>
 			<span asp-validation-for="Mensaje" class="text-danger"></span>
 		</div>
 		<button type="submit" class="btn btn-primary">Enviar</button>
@@ -41,5 +33,3 @@
 		<partial name="_ValidationScriptsPartial" />
 	}
 
-
-</div>

@@ -9,40 +9,62 @@ namespace WebFormContact.Controllers
         private readonly ApplicationDbContext _context;
 
         public HomeController(ApplicationDbContext context)
+
         {
+
             _context = context;
+
         }
 
         [HttpPost]
+
         public IActionResult Submit(Contacto model)
+
         {
-            if (ModelState.IsValid)
+
+            if (!ModelState.IsValid)
+
             {
+
                 return View("Index", model);
+
             }
+
             _context.Contacto.Add(model);
+
             _context.SaveChanges();
 
-            TempData["SuccessMessage"] = "Tu mensaje ha sido enviado con éxito";
+            TempData["SuccessMessage"] = "Tu mensaje ha sido enviado con éxito.";
+
             return RedirectToAction("Index");
+
         }
 
-        /*
         public IActionResult Index()
+
         {
+
             return View();
+
         }
 
         public IActionResult Privacy()
+
         {
+
             return View();
+
         }
-        */
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
         public IActionResult Error()
+
         {
+
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
         }
+
     }
 }
