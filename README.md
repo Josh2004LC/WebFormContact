@@ -1,18 +1,20 @@
-1.	MVC .NET:
-  o	Crear un proyecto en ASP.NET Core MVC.
-  o	El formulario debe ser accesible desde una vista.
-  o	Los datos del formulario deben ser recibidos por un controlador, procesados y luego presentados en otra vista de confirmación.
+Formulario de Contacto
+¿Qué hace?
+Es una aplicación web simple hecha en C# .NET MVC que permite:
 
-3.	Formulario:
-  o	El formulario debe incluir los siguientes campos:
-    	Nombre (campo de texto).
-    	Correo electrónico (campo de texto con validación de formato de email).
-    	Mensaje (campo de texto largo).
-  o	Al hacer submit, los datos deben ser enviados al controlador y mostrados en una página de confirmación.
+Enviar mensajes a través de un formulario
+Ver una confirmación cuando el mensaje se envía
+Mostrar todos los mensajes recibidos en una tabla
 
-5.	Validación:
-  o	Implementar validación en el lado del cliente y servidor para asegurar que los datos ingresados sean correctos antes de ser enviados.
+Cómo ejecutarlo
 
-7.	Git:
-  o	El proyecto debe ser subido a un repositorio en GitHub.
-  o	El repositorio debe contener:
+Clona el repositorio
+Abre el proyecto en Visual Studio
+Dale click a "Run" (o presiona F5)
+¡Listo! La aplicación se abrirá en tu navegador
+
+¿Por qué uso Git?
+
+Para no perder los cambios que hago
+Para poder volver a versiones anteriores si algo sale mal
+Si alguien más quiere ayudar con el código, puede hacerlo fácilmente

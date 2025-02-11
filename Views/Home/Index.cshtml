@@ -1,35 +1,65 @@
-﻿	@model WebFormContact.Models.Contacto
+﻿@model WebFormContact.Models.ContactoViewModel
 
-	@{
-		ViewData["Title"] = "Formuraio de Contacto";
-	}
-	<h2>Formulario de Contacto</h2>
-	@if (TempData["SuccessMessage"] != null)
-	{
-		<div class="alert alert-success">
-			@TempData["SuccessMessage"]
-		</div>
-	}
+@{
+    ViewData["Title"] = "Formulario de Contacto";
+}
 
-	<form asp-action="Submit" method="post">
-		<div>
-			<label>Nombre: </label>
-			<input asp-for="Nombre" class="form-control" />
-			<span asp-validation-for="Nombre" class="text-danger"></span>
-		</div>
-		<div>
-			<label>Correo Electrónico: </label>
-			<input asp-for="Correo" class="form-control" />
-			<span asp-validation-for="Correo" class="text-danger"></span>
-		</div>
-		<div>
-			<label>Mensaje:</label>
-			<textarea asp-for="Mensaje" class="form-control"></textarea>
-			<span asp-validation-for="Mensaje" class="text-danger"></span>
-		</div>
-		<button type="submit" class="btn btn-primary">Enviar</button>
-	</form>
-	@section Scripts {
-		<partial name="_ValidationScriptsPartial" />
-	}
+<!-- Enlace al archivo CSS -->
+<link rel="stylesheet" href="~/css/site.css" />
 
+<h2>Formulario de Contacto</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form asp-action="Submit" method="post">
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input asp-for="NuevoMensaje.Nombre" class="form-control" />
+        <span asp-validation-for="NuevoMensaje.Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Correo Electrónico:</label>
+        <input asp-for="NuevoMensaje.Correo" class="form-control" />
+        <span asp-validation-for="NuevoMensaje.Correo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Mensaje:</label>
+        <textarea asp-for="NuevoMensaje.Mensaje" class="form-control"></textarea>
+        <span asp-validation-for="NuevoMensaje.Mensaje" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<h3>Mensajes Recibidos</h3>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Mensaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var mensaje in Model.Mensajes)
+            {
+                <tr>
+                    <td>@mensaje.Nombre</td>
+                    <td>@mensaje.Correo</td>
+                    <td>@mensaje.Mensaje</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

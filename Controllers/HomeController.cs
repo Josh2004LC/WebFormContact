@@ -18,19 +18,19 @@ namespace WebFormContact.Controllers
 
         [HttpPost]
 
-        public IActionResult Submit(Contacto model)
+        public IActionResult Submit(ContactoViewModel model)
 
         {
 
             if (!ModelState.IsValid)
 
             {
-
+                model.Mensajes = _context.Contacto.ToList(); // En caso de error va a recargar los mensajes
                 return View("Index", model);
 
             }
 
-            _context.Contacto.Add(model);
+            _context.Contacto.Add(model.NuevoMensaje);
 
             _context.SaveChanges();
 
@@ -44,7 +44,12 @@ namespace WebFormContact.Controllers
 
         {
 
-            return View();
+            var viewModel = new ContactoViewModel
+            {
+                NuevoMensaje = new Contacto(),
+                Mensajes = _context.Contacto.ToList()
+            };
+            return View(viewModel);
 
         }
 
